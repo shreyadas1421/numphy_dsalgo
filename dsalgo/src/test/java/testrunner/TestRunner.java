@@ -11,7 +11,8 @@ import io.cucumber.testng.CucumberOptions;
 
 		@CucumberOptions(
 				features ={"src/test/resources/features"},
-				plugin = {"pretty", "html:target/dsalgoproject.html"}, //reporting purpose
+				plugin = {"pretty", "html:target/dsalgoproject.html",
+					 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}, //reporting purpose
 				//tags = {"@Tree"},
 				
 				glue= "dsalgo_stepdefinition",
