@@ -13,6 +13,8 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,7 +26,9 @@ import dsutilities.DsalgoVariables;
 import dsutilities.TestBase;
 import dsutilities.UtilityMethods;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 
 public class DSalgoBaseStepDefinition {
 
@@ -88,7 +92,16 @@ public class DSalgoBaseStepDefinition {
 	
 @After
 public void driverClose() {
-	//DriverManager.getDriver().close();
+	DriverManager.getDriver().close();
 }
+
+@AfterStep
+public void attach_screenshot(Scenario scenario) {
+	if(scenario.isFailed()) {
+	byte[] screenshottaken= ((TakesScreenshot)DriverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
+	scenario.attach(screenshottaken, "image/png", "errorscreen");
 	
+	
+	}
+}
 }

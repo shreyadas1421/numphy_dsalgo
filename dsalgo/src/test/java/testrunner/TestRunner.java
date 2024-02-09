@@ -12,7 +12,9 @@ import io.cucumber.testng.CucumberOptions;
 		@CucumberOptions(
 				features ={"src/test/resources/features"},
 				plugin = {"pretty", "html:target/dsalgoproject.html",
-					 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}, //reporting purpose
+						"json:target/dsalgoproject.json",
+						"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
+						"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}, //reporting purpose
 				//tags = {"@Tree"},
 				
 				glue= "dsalgo_stepdefinition",

@@ -2,6 +2,7 @@ package dsalgo_stepdefinition;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 
 import dsalgoPOM.LinkedList;
 import dsalgoPOM.StackPage;
@@ -42,6 +43,9 @@ public class DSalgoStackStepDefininition {
 	@Then("The user should be directed to {string} page in Stack")
 	public void the_user_should_be_directed_to_page_in_stack(String string) {
 		System.out.println("Empty page");
+		String actualurl="https://dsportalapp.herokuapp.com/stack/practice";
+		String	expectedurl=DriverManager.getDriver().getCurrentUrl();
+		Assert.assertEquals(actualurl, expectedurl);  
 	}
 	
 }

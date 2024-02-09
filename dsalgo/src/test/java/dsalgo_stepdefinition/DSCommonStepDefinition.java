@@ -187,43 +187,43 @@ public void the_user_should_be_directed_to_page(String new_page) {
 	else if(new_page.equals("Creating Linked LIst")) {
 		UtilityMethods.wait.until(ExpectedConditions.visibilityOf(TreePage.commonxpathtext("Creating Linked LIst")));
 		js.executeScript("window.scrollBy(0,250)", "");
-		System.out.println("User directed to Introduction Page");
-		LOGGER.info("User directed to Introduction Page");
+		System.out.println("User directed to Creating Linked LIst Page");
+		LOGGER.info("User directed to Creating Linked LIst Page");
 		
 	}
 	else if(new_page.equals("Types of Linked List")) {
 		UtilityMethods.wait.until(ExpectedConditions.visibilityOf(TreePage.commonxpathtext("Types of Linked List")));
 		js.executeScript("window.scrollBy(0,250)", "");
-		System.out.println("User directed to Introduction Page");
-		LOGGER.info("User directed to Introduction Page");
+		System.out.println("User directed to Types of Linked List Page");
+		LOGGER.info("User directed to Types of Linked List Page");
 		
 	}
 	else if(new_page.equals("Implement Linked List in Python")) {
 		UtilityMethods.wait.until(ExpectedConditions.visibilityOf(TreePage.commonxpathtext("Implement Linked List in Python")));
 		js.executeScript("window.scrollBy(0,250)", "");
-		System.out.println("User directed to Introduction Page");
-		LOGGER.info("User directed to Introduction Page");
+		System.out.println("User directed to Implement Linked List in Python Page");
+		LOGGER.info("User directed to Implement Linked List in Python Page");
 		
 	}
 	else if(new_page.equals("Traversal")) {
 		UtilityMethods.wait.until(ExpectedConditions.visibilityOf(TreePage.commonxpathtext("Traversal")));
 		js.executeScript("window.scrollBy(0,250)", "");
-		System.out.println("User directed to Introduction Page");
-		LOGGER.info("User directed to Introduction Page");
+		System.out.println("User directed to Traversal Page");
+		LOGGER.info("User directed to Traversal Page");
 		
 	}
 	else if(new_page.equals("Insertion")) {
 		UtilityMethods.wait.until(ExpectedConditions.visibilityOf(TreePage.commonxpathtext("Insertion")));
 		js.executeScript("window.scrollBy(0,250)", "");
-		System.out.println("User directed to Introduction Page");
-		LOGGER.info("User directed to Introduction Page");
+		System.out.println("User directed to Insertion Page");
+		LOGGER.info("User directed to Insertion Page");
 		
 	}
 	else if(new_page.equals("Deletion")) {
 		UtilityMethods.wait.until(ExpectedConditions.visibilityOf(TreePage.commonxpathtext("Deletion")));
 		js.executeScript("window.scrollBy(0,250)", "");
-		System.out.println("User directed to Introduction Page");
-		LOGGER.info("User directed to Introduction Page");
+		System.out.println("User directed to Deletion Page");
+		LOGGER.info("User directed to Deletion Page");
 		
 	}
 	
@@ -267,22 +267,22 @@ public void the_user_should_be_directed_to_page(String new_page) {
 	else if(new_page.equals("Operations in Stack")) {
 		UtilityMethods.wait.until(ExpectedConditions.visibilityOf(TreePage.commonxpathtext("Operations in Stack")));
 		js.executeScript("window.scrollBy(0,250)", "");
-		System.out.println("User directed to Queue Operations Page");
-		LOGGER.info("User directed to Queue Operations Page");
+		System.out.println("User directed to Operations in Stack Page");
+		LOGGER.info("User directed to Operations in Stack Page");
 		
 	}
 	else if(new_page.equals("Implementation")) {
 		UtilityMethods.wait.until(ExpectedConditions.visibilityOf(TreePage.commonxpathtext("Implementation")));
 		js.executeScript("window.scrollBy(0,250)", "");
-		System.out.println("User directed to Queue Operations Page");
-		LOGGER.info("User directed to Queue Operations Page");
+		System.out.println("User directed to Implementation Page");
+		LOGGER.info("User directed to Implementation Page");
 		
 	}
 	else if(new_page.equals("Applications")) {
 		UtilityMethods.wait.until(ExpectedConditions.visibilityOf(TreePage.commonxpathtext("Applications")));
 		js.executeScript("window.scrollBy(0,250)", "");
-		System.out.println("User directed to Queue Operations Page");
-		LOGGER.info("User directed to Queue Operations Page");
+		System.out.println("User directed to Applications Page");
+		LOGGER.info("User directed to Applications Page");
 		
 	}
 	else if(new_page.equals("Graph")) {
@@ -296,8 +296,8 @@ public void the_user_should_be_directed_to_page(String new_page) {
 	else if(new_page.equals("Graph Representations")) {
 		UtilityMethods.wait.until(ExpectedConditions.visibilityOf(TreePage.commonxpathtext("Graph Representations")));
 		js.executeScript("window.scrollBy(0,250)", "");
-		System.out.println("User directed to Queue Operations Page");
-		LOGGER.info("User directed to Queue Operations Page");
+		System.out.println("User directed to Graph Representations Page");
+		LOGGER.info("User directed to Graph Representations Page");
 		
 	}
 }
@@ -499,7 +499,11 @@ public void the_user_should_be_redirected_to_a_page_having_an_try_editor_with_a_
 	LOGGER.info("User directed to TextEditor Page");
 	
 	TreePage.Texteditor.click();
+	action.sendKeys("print('Hello')").build().perform();
+	TreePage.run_button.click();
 	
+	TreePage.Texteditor1.click();
+	action.keyDown(Keys.CONTROL).sendKeys("A").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).build().perform();
 	
 	action.sendKeys("pri('Hello')").build().perform();
 	
@@ -513,10 +517,11 @@ public void the_user_should_be_redirected_to_a_page_having_an_try_editor_with_a_
 		alert.accept();
 		
 	} catch (Exception e) {
-		
+	 e.printStackTrace();	
 		
 	} 
-	finally {
+	
+	/*finally {
 		System.out.println(ExpectedConditions.alertIsPresent());
 		DsalgoVariables.path="src/test/resources/TestData/dsAlgoTestData.xlsx";
 		File excelFile=new File(DsalgoVariables.path);
@@ -558,7 +563,7 @@ public void the_user_should_be_redirected_to_a_page_having_an_try_editor_with_a_
 		System.out.println("The output is :" +TreePage.output.getText());
 		LOGGER.info("The output is :" +TreePage.output.getText());
 		
-	}	
+	}	*/
 
 }
 
